@@ -1,5 +1,5 @@
-<testsuite failures="0" name="Utilities/createUsers.feature" skipped="0" tests="5" time="15.621134">
-  <testcase classname="Utilities.createUsers" name="Create a user with array" time="3.11558">
+<testsuite failures="0" name="Utilities/createUsers.feature" skipped="0" tests="5" time="13.551462">
+  <testcase classname="Utilities.createUsers" name="Create a user with array" time="2.708877">
     <system-out>* url  baseUrl ............................................................ passed
 * def testData = read('./petUser.json') ................................... passed
 Given path 'v2/user/createWithArray' ...................................... passed
@@ -7,7 +7,7 @@ When request testData ..................................................... pass
 And method post ........................................................... passed
 Then status 200 ........................................................... passed</system-out>
   </testcase>
-  <testcase classname="Utilities.createUsers" name="Search user by userID" time="3.135816">
+  <testcase classname="Utilities.createUsers" name="Search user by userID" time="2.722451">
     <system-out>* url  baseUrl ............................................................ passed
 * def testData = read('./petUser.json') ................................... passed
 Given path 'v2/user/createWithArray' ...................................... passed
@@ -17,11 +17,11 @@ Then status 200 ........................................................... pass
 * url  baseUrl ............................................................ passed
 * def testData = read('./petUser.json') ................................... passed
 Given path 'v2/user/'+testData[1].username ................................ passed
-When method Get ........................................................... passed
+When method get ........................................................... passed
 Then status 200 ........................................................... passed
 And match $.username == testData[1].username .............................. passed</system-out>
   </testcase>
-  <testcase classname="Utilities.createUsers" name="Update a user" time="3.116504">
+  <testcase classname="Utilities.createUsers" name="Update a user" time="2.733542">
     <system-out>* url  baseUrl ............................................................ passed
 * def testData = read('./petUser.json') ................................... passed
 Given path 'v2/user/createWithArray' ...................................... passed
@@ -31,7 +31,7 @@ Then status 200 ........................................................... pass
 * url  baseUrl ............................................................ passed
 * def testData = read('./petUser.json') ................................... passed
 Given path 'v2/user/'+testData[1].username ................................ passed
-When method Get ........................................................... passed
+When method get ........................................................... passed
 Then status 200 ........................................................... passed
 And match $.username == testData[1].username .............................. passed
 * url  baseUrl ............................................................ passed
@@ -43,7 +43,7 @@ And method put ............................................................ pass
 Then status 200 ........................................................... passed
 And match $.message == userID ............................................. passed</system-out>
   </testcase>
-  <testcase classname="Utilities.createUsers" name="Validate user login" time="3.108977">
+  <testcase classname="Utilities.createUsers" name="Validate user login" time="2.702133">
     <system-out>* url  baseUrl ............................................................ passed
 * def testData = read('./petUser.json') ................................... passed
 Given path 'v2/user/createWithArray' ...................................... passed
@@ -53,7 +53,7 @@ Then status 200 ........................................................... pass
 * url  baseUrl ............................................................ passed
 * def testData = read('./petUser.json') ................................... passed
 Given path 'v2/user/'+testData[1].username ................................ passed
-When method Get ........................................................... passed
+When method get ........................................................... passed
 Then status 200 ........................................................... passed
 And match $.username == testData[1].username .............................. passed
 * url  baseUrl ............................................................ passed
@@ -73,7 +73,7 @@ And method get ............................................................ pass
 Then status 200 ........................................................... passed
 And match $.message contains 'logged in user' ............................. passed</system-out>
   </testcase>
-  <testcase classname="Utilities.createUsers" name="Delete a user" time="3.144257">
+  <testcase classname="Utilities.createUsers" name="Delete a user" time="2.684459">
     <system-out>* url  baseUrl ............................................................ passed
 * def testData = read('./petUser.json') ................................... passed
 Given path 'v2/user/createWithArray' ...................................... passed
@@ -83,7 +83,7 @@ Then status 200 ........................................................... pass
 * url  baseUrl ............................................................ passed
 * def testData = read('./petUser.json') ................................... passed
 Given path 'v2/user/'+testData[1].username ................................ passed
-When method Get ........................................................... passed
+When method get ........................................................... passed
 Then status 200 ........................................................... passed
 And match $.username == testData[1].username .............................. passed
 * url  baseUrl ............................................................ passed
