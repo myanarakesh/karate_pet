@@ -1,7 +1,7 @@
 Feature: Create a users
 
   Background: 
-    url  baseUrl
+    * url  baseUrl
     * def testData = read('./petUser.json')
 
   Scenario: Create a user with array
