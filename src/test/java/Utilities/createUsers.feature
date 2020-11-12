@@ -4,6 +4,7 @@ Feature: Create a users
     * url  baseUrl
     * def testData = read('./petUser.json')
 
+  @temp
   Scenario: Create a user with array
     Given path 'v2/user/createWithArray'
     When request testData
