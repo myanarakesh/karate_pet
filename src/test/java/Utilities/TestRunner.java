@@ -13,7 +13,7 @@ import com.intuit.karate.Runner;
 import net.masterthought.cucumber.Configuration;
 import net.masterthought.cucumber.ReportBuilder;
 
-@KarateOptions(tags={"~@ignore"})
+@KarateOptions(tags={"~@igonre"})
 
 public class TestRunner {
 	@Test
