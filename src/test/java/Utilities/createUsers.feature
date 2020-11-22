@@ -51,3 +51,39 @@ Feature: Create a users
     And method delete
     Then status 200
     And match $.message == testData[1].username
+
+		@createPet
+    Scenario: Adding and getting a pet by status
+    * def requestBody =
+    """
+	    {
+			  "id": 123,
+			  "category": {
+			    "id": 58,
+			    "name": "Working Group"
+			  },
+			  "name": "Siberian Husky",
+			  "photoUrls": [
+			    "www.dogs.com/husky"
+			  ],
+			  "tags": [
+			    {
+			      "id": 587,
+			      "name": "husky"
+			    }
+			  ],
+			  "status": "available"
+			}
+		"""
+    Given path '/v2/pet'
+    And request requestBody
+    When method post
+    Then status 200
+    And match $.id == 123
+    Given path '/v2/pet/findByStatus'
+    And param status = 'available'
+    When method Get
+    Then status 200
+    And match $.*.id contains 123
+    And match $..category.name contains 'Working Group'
+    
