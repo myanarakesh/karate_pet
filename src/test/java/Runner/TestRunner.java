@@ -13,7 +13,7 @@ import com.intuit.karate.Runner;
 import net.masterthought.cucumber.Configuration;
 import net.masterthought.cucumber.ReportBuilder;
 
-@KarateOptions(features = { "classpath:Features/createUsers.feature" }, tags = { "~@ignore" })
+@KarateOptions(features = { "classpath:Features/petOwners.feature" }, tags = { "~@ignore" })
 
 public class TestRunner {
 	@Test
