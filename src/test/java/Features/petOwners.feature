@@ -3,10 +3,7 @@ Feature: Create a users
   Background: 
     * url  baseUrl
     * def testData = read('classpath:TestData/petUser.json')
-    * def createPetData = read('classpath:TestData/createPet.json')
-    * def placeOrderData = read('classpath:TestData/placeOrderData.json')
 
-  @temp
   Scenario: Create a user with array
     Given path 'v2/user/createWithArray'
     When request testData
@@ -54,34 +51,23 @@ Feature: Create a users
     Then status 200
     And match $.message == testData[1].username
 
-  Scenario: Adding and getting a pet by status
-    * def idVal = 551100
-    Given path '/v2/pet'
-    And request createPetData
-    * eval karate.set('createPetData','$.id',idVal)
-    When method post
-    Then status 200
-    And match $.id == idVal
-    #searching added pet
+  Scenario: Searhing a added pet
+    * def orderPet = call read('petScenarios.feature@addingPet')
+    * def getID = orderPet.IDResponse
+    * def getCategory = orderPet.CategoryResponse
     Given path '/v2/pet/findByStatus'
     And param status = 'available'
     When method Get
     Then status 200
-    And match $.*.id contains idVal
-    And match $..category.name contains createPetData.category.name
+    And match $.*.id contains getID
+    And match $..category.name contains getCategory
 
-  Scenario: Order a pet
-    * def idVal = 6
-    Given path '/v2/store/order'
-    And request placeOrderData
-    * eval karate.set('placeOrderData','$.id',idVal)
-    * karate.put
-    When method post
-    Then status 200
-    And match $.id == idVal
+  Scenario: Get orderd pet details
+    * def petOrder = call read('petScenarios.feature@petOrder')
+    * def petOrderId = petOrder.petId
     Given path '/v2/store/order/'
-    When path idVal
+    And path petOrderId
     When method get
     Then status 200
-    And match $.id == idVal
+    And match $.id == petOrderId
     And match $.petId == 123958
