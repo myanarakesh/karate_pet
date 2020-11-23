@@ -32,10 +32,10 @@ https://github.com/intuit/karate
 
 # mechanism to execute the tests  
   ~~~~
-  Clone this repo and switch to the master branch. If your using command line prompt then follwoing commands will be useful (Before executing following commands please goto your folder directory)
+  Clone this repo and switch to the main branch. If your using command line prompt then follwoing commands will be useful (Before executing following commands please goto your folder directory)
   * mvn clone https://github.com/myanarakesh/steerleanAssignment.git
   * cd steerleanAssignment
-  * mvn checkout master
+  * mvn checkout main
   * mvn pull
   Above command will help you to downlowd the projet into your local machine. Import this maven project into your IDE and run the follwoing command on root directory
   * `mvn clean install`
@@ -45,7 +45,7 @@ https://github.com/intuit/karate
 
   ~~~~
   
-# CI on Github / Gitlab (if used)
+# CI on Github
 
    ~~~~
    Continue Integration setting is mentioned under #main.yml file. Which has setting to run when code is pushed in main branch
