@@ -2,9 +2,9 @@ Feature: Create a users
 
   Background: 
     * url  baseUrl
-    * def testData = read('./petUser.json')
-    * def createPetData = read('./createPet.json')
-    * def placeOrderData = read('./placeOrderData.json')
+    * def testData = read('classpath:TestData/petUser.json')
+    * def createPetData = read('classpath:TestData/createPet.json')
+    * def placeOrderData = read('classpath:TestData/placeOrderData.json')
 
   Scenario: Create a user with array
     Given path 'v2/user/createWithArray'
@@ -53,6 +53,7 @@ Feature: Create a users
     Then status 200
     And match $.message == testData[1].username
 
+	@temp
   Scenario: Adding and getting a pet by status
     * def idVal = 551100
     Given path '/v2/pet'
