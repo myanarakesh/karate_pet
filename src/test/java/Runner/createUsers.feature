@@ -53,7 +53,7 @@ Feature: Create a users
     Then status 200
     And match $.message == testData[1].username
 
-	@temp
+
   Scenario: Adding and getting a pet by status
     * def idVal = 551100
     Given path '/v2/pet'
@@ -71,7 +71,7 @@ Feature: Create a users
     And match $..category.name contains createPetData.category.name
 
   Scenario: Order a pet
-    * def idVal = 6
+		* def idVal = 6
     Given path '/v2/store/order'
     And request placeOrderData
     * eval karate.set('placeOrderData','$.id',idVal)
