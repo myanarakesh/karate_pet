@@ -54,7 +54,7 @@ Feature: Create a users
   Scenario: Searhing a added pet
     * def orderPet = call read('petScenarios.feature@addingPet')
     * def getID = orderPet.IDResponse
-    * def getCategory = orderPet.CategoryResponse
+    * def getCategory = orderPet.categoryNameResponse
     Given path '/v2/pet/findByStatus'
     And param status = 'available'
     When method Get
@@ -62,12 +62,12 @@ Feature: Create a users
     And match $.*.id contains getID
     And match $..category.name contains getCategory
 
+
   Scenario: Get orderd pet details
     * def petOrder = call read('petScenarios.feature@petOrder')
-    * def petOrderId = petOrder.petId
+    * def petOrderId = petOrder.petIdValue
     Given path '/v2/store/order/'
     And path petOrderId
     When method get
     Then status 200
     And match $.id == petOrderId
-    And match $.petId == 123958
