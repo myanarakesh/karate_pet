@@ -3,7 +3,6 @@ Feature: List of Pet API scenarios
   Background: 
     * url  baseUrl
     * def createPetData = read("file:src/test/resources/TestData/createPet.json")
-    #* def placeOrderData = read('file:src/test/resources/TestData/placeOrderData.json')
     * def MyUtil = Java.type('Utilites.generateRandomValue')
 
   @addingPet
