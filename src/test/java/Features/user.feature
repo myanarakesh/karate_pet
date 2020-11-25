@@ -1,8 +1,8 @@
-Feature: Create a users
+Feature: List of User API scenarios
 
   Background: 
     * url  baseUrl
-    * def testData = read('classpath:TestData/petUser.json')
+    * def testData = read('classpath:resources/TestData/petUser.json')
 
   Scenario: Create a user with array
     Given path 'v2/user/createWithArray'
@@ -50,24 +50,3 @@ Feature: Create a users
     And method delete
     Then status 200
     And match $.message == testData[1].username
-
-  Scenario: Searhing a added pet
-    * def orderPet = call read('petScenarios.feature@addingPet')
-    * def getID = orderPet.IDResponse
-    * def getCategory = orderPet.categoryNameResponse
-    Given path '/v2/pet/findByStatus'
-    And param status = 'available'
-    When method Get
-    Then status 200
-    And match $.*.id contains getID
-    And match $..category.name contains getCategory
-
-
-  Scenario: Get orderd pet details
-    * def petOrder = call read('petScenarios.feature@petOrder')
-    * def petOrderId = petOrder.petIdValue
-    Given path '/v2/store/order/'
-    And path petOrderId
-    When method get
-    Then status 200
-    And match $.id == petOrderId

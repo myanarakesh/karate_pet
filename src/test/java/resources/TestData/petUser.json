@@ -1,0 +1,22 @@
+[
+	{
+		"id": 134,
+		"username": "myanarocky",
+		"firstName": "reload",
+		"lastName": "myana",
+		"email": "rakesh@gmail.com",
+		"password": "123456",
+		"phone": "12341657891",
+		"userStatus": 1
+	},
+	{
+		"id": 987,
+		"username": "mauryarajesh",
+		"firstName": "rajesh",
+		"lastName": "maurya",
+		"email": "rajesh@outlook.com",
+		"password": "123456",
+		"phone": "12341657891",
+		"userStatus": 1
+	}
+]

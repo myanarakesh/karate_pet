@@ -1,9 +1,9 @@
-Feature: List of pet API scenarios
+Feature: List of Pet API scenarios
 
   Background: 
     * url  baseUrl
-    * def createPetData = read('classpath:TestData/createPet.json')
-    * def placeOrderData = read('classpath:TestData/placeOrderData.json')
+    * def createPetData = read('classpath:resources/TestData/createPet.json')
+    * def placeOrderData = read('classpath:resources/TestData/placeOrderData.json')
     * def MyUtil = Java.type('Utilites.generateRandomValue')
 
   @addingPet
@@ -21,13 +21,13 @@ Feature: List of pet API scenarios
     * def IDResponse = $.id
     * def categoryNameResponse = $..category.name
 
-  @petOrder
-  Scenario: Place an pet order
-    * def idVal = MyUtil.randomIntegerGenerarot(5)
-    Given path '/v2/store/order'
-    And request placeOrderData
-    * eval karate.set('placeOrderData','$.id',idVal)
-    When method post
+  Scenario: Searh ing a added pet
+    * def orderPet = call read('pet.feature@addingPet')
+    * def getID = orderPet.IDResponse
+    * def getCategory = orderPet.categoryNameResponse
+    Given path '/v2/pet/findByStatus'
+    And param status = 'available'
+    When method Get
     Then status 200
-    And match $.id == idVal
-    * def petIdValue = $.id
+    And match $.*.id contains getID
+    And match $..category.name contains getCategory
