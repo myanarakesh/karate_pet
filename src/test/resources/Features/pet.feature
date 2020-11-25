@@ -3,10 +3,10 @@ Feature: List of Pet API scenarios
   Background: 
     * url  baseUrl
     * def createPetData = read("file:src/test/resources/TestData/createPet.json")
-    * def placeOrderData = read('file:src/test/resources/TestData/placeOrderData.json')
+    #* def placeOrderData = read('file:src/test/resources/TestData/placeOrderData.json')
     * def MyUtil = Java.type('Utilites.generateRandomValue')
 
-  @addingPet @new
+  @addingPet
   Scenario: Adding a pet to store
     * def idVal = MyUtil.randomIntegerGenerarot(5)
     * def categorName = MyUtil.randomStringGenerarot(5)
@@ -21,7 +21,7 @@ Feature: List of Pet API scenarios
     * def IDResponse = $.id
     * def categoryNameResponse = $..category.name
 
-  Scenario: Searh ing a added pet
+  Scenario: Searching a added pet
     * def orderPet = call read('pet.feature@addingPet')
     * def getID = orderPet.IDResponse
     * def getCategory = orderPet.categoryNameResponse

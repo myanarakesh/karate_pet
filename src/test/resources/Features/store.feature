@@ -2,7 +2,7 @@ Feature: List of Store API scenarios
 
   Background: 
     * url  baseUrl
-    * def testData = read('file:src/test/resources/TestData/petUser.json')
+    #* def testData = read('file:src/test/resources/TestData/petUser.json')
     * def placeOrderData = read('file:src/test/resources/TestData/placeOrderData.json')
     * def MyUtil = Java.type('Utilites.generateRandomValue')
 
