@@ -1,0 +1,18 @@
+{
+	"id": 123,
+	"category": {
+		"id": 58,
+		"name": "Working Group"
+	},
+	"name": "Siberian Husky",
+	"photoUrls": [
+		"www.dogs.com/husky"
+	],
+	"tags": [
+		{
+			"id": 587,
+			"name": "husky"
+		}
+	],
+	"status": "available"
+}
